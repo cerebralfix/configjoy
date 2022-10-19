@@ -1,0 +1,76 @@
+using System.IO;
+using System;
+using System.Threading.Tasks;
+using UnityEngine;
+
+public class __MESSAGE_NAME__Loader
+{
+    private const string path = "__CSHARP_DATA_PATH__";
+    private const string file = "__ROOT_MESSAGE_NAME__.json";
+    private static FileSystemWatcher watcher;
+    public static __MESSAGE_NAME__ __VAR_NAME__;
+    public delegate void DataChangeEvent();
+    public static DataChangeEvent onDataChanged = () => { };
+    private static readonly object fileLock = new object();
+    private static DateTime previousTime = DateTime.Now;
+    private static TaskScheduler scheduler;
+
+    public static void EnableWatching()
+    {
+        if (!File.Exists(Path.Combine(path, file)))
+        {
+            return;
+        }
+
+        scheduler = TaskScheduler.FromCurrentSynchronizationContext();
+
+        watcher = new FileSystemWatcher();
+        watcher.Path = path;
+        watcher.Filter = file;
+
+        // Watch for changes in LastAccess and LastWrite times, and
+        // the renaming of files or directories.
+        watcher.NotifyFilter = NotifyFilters.LastWrite;
+
+        // Add event handlers
+        watcher.Changed += OnChanged;
+
+        // Begin watching
+        watcher.EnableRaisingEvents = true;
+    }
+
+
+    public static void DisableWatching()
+    {
+        if (watcher != null)
+        {
+            watcher.Changed -= OnChanged;
+            watcher.Dispose();
+        }
+    }
+
+    private static void UpdateFile()
+    {
+        var parser = __MESSAGE_NAME__.Parser;
+        var textFile = Resources.Load<TextAsset>("__UNITY_RESOURCES_PATH__");
+        __VAR_NAME__ = parser.ParseJson(textFile.text);
+        onDataChanged();
+    }
+
+    private static void OnChanged(object source, FileSystemEventArgs e)
+    {
+        lock (fileLock)
+        {
+            if ((DateTime.Now - previousTime).TotalSeconds > 1)
+            {
+                previousTime = DateTime.Now;
+                Task.Delay(100).ContinueWith(t => UpdateFile(), scheduler);
+            }
+        }
+    }
+
+    public static void LoadData()
+    {
+        UpdateFile();
+    }
+}

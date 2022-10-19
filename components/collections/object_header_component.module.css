@@ -1,0 +1,86 @@
+.row {
+    background-color: #eee;
+    border: none;
+}
+
+.cell {
+    white-space: nowrap;
+    border: none;
+    border-right: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    height: calc(var(--headerHeight) - 2px);
+    background: #eee;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.cell:last-child {
+    border-right: none;
+}
+
+.cell:first-child.sticky {
+    position: sticky;
+    left: 0;
+    z-index: 3;
+}
+
+.propertyTitle,
+.objectNumberText {
+    color: #333;
+    font-size: 14px;
+    display: flex;
+    height: calc(var(--headerHeight) - 2px);
+    gap: 5px;
+    padding: 0 12px;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.objectNumberText {
+    justify-content: center;
+}
+
+.propertyType {
+    color: #777;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+.string {
+    color: #F38630;
+    background: rgb(243, 134, 48, 0.1);
+}
+
+.enum {
+    color: #3B8686;
+    background: rgb(59, 134, 134, 0.1);
+}
+
+.int32,
+.uint32 {
+    color: #42afc5;
+    background: rgb(66, 175, 197, 0.1);
+}
+
+.float {
+    color: #4256c5;
+    background: rgb(66, 175, 197, 0.1);
+}
+
+.Timestamp {
+    color: #85b985;
+    background: rgb(168, 219, 168, 0.1);
+}
+
+.bool {
+    color: #c9a400;
+    background: rgba(179, 146, 1, 0.1);
+}
+
+.topPadding {
+    padding-top: 12px;
+}

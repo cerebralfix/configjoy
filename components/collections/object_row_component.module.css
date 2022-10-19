@@ -1,0 +1,71 @@
+.row {
+    border-radius: 8px;
+    position: relative;
+    border-top: 2px solid #e5e5e5;
+}
+
+.selected>.objectNumberInner>.objectNumber {
+    background: #31b97a;
+}
+
+.selected>.cellInternal:first-child {
+    border-right-color: #c6ecda;
+    border-bottom-color: #c6ecda;
+}
+
+.cell {
+    vertical-align: top;
+    background: #f8f8f8;
+}
+
+.cellInternal {
+    border-right: 2px solid #eeeeee;
+    border-bottom: 2px solid #e5e5e5;
+}
+
+.cellInternal:last-child {
+    border-right: none;
+}
+
+.row:last-child>.cellInternal {
+    border-bottom: none;
+}
+
+.objectNumberInner {
+    background: #f8f8f8;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+}
+
+.objectNumber {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #888;
+    top: var(--headerHeight);
+    position: sticky;
+    z-index: 2;
+}
+
+.objectNumberText {
+    height: 45px;
+    width: var(--headerHeight);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.checkboxOuter {
+    height: 60px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.oneof {
+    display: flex;
+}

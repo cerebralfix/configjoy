@@ -1,0 +1,61 @@
+.propertyOuter {
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid rgba(200, 200, 200, 0.4);
+    background: #f8f8f8;
+}
+
+.propertyOuter:last-child {
+    border-right: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.propertyOuter:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.propertyOuter:last-child>.propertyInner {
+    border-radius: 0 8px 8px 0;
+}
+
+.propertyOuter:last-child>.propertyInner>.propertyTitle {
+    border-radius: 0 8px 0 0;
+}
+
+.propertyInner {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    padding: 12px;
+    align-items: flex-start;
+}
+
+.oneof {
+    padding: 12px;
+    background: #fff;
+}
+
+.innerTable {
+    border: 2px solid #e5e5e5;
+}
+
+.topLevel {
+    position: initial;
+}
+
+.compact {
+    border-right: none;
+    background: none;
+}
+
+.topLevelPrimitive {
+    max-width: 400px;
+    border-right: none;
+}
+
+.propertyInnerBody {
+    padding: 12px;
+}

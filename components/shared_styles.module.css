@@ -1,0 +1,115 @@
+.button {
+    height: 36px;
+    padding: 0 12px;
+    border: 2px solid #dadada;
+    background: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #777;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.button:hover {
+    border-color: #b9e4cf;
+}
+
+.button:active {
+    border-color: #31b97a;
+}
+
+.button:focus {
+    outline: none;
+    border-color: #31b97a;
+}
+
+.button>svg {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.textInput {
+    border: 2px solid #eee;
+    border-radius: 8px;
+    height: 36px;
+    padding: 0 8px;
+}
+
+.divider {
+    flex-grow: 1;
+}
+
+.subtleButton {
+    border: none;
+    background: #ddd;
+    padding: 4px;
+    display: flex;
+    margin-left: 4px;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.subtleButton:hover {
+    background: #d5d5d5;
+}
+
+.subtleButton:active {
+    background: #ccc;
+}
+
+.checkboxOuter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    height: 36px;
+}
+
+.checkboxInput {
+    display: none;
+}
+
+.checkbox {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #eee;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox>svg {
+    fill: #31b97a;
+    font-size: 13px;
+}
+
+.checkboxChecked>svg {
+    fill: #fff;
+}
+
+.checkboxChecked {
+    border-color: #87dbb4;
+}
+
+.checkboxChecked.mouseOver {
+    border-color: #b9f1d7;
+}
+
+.checkboxChecked.mouseOver {
+    border-color: #b9f1d7;
+}
+
+.checkboxChecked.checkboxMinimal>svg {
+    fill: #31b97a;
+}
+
+.mouseOver {
+    border-color: #b9e4cf;
+}

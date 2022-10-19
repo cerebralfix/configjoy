@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+message PackageJson {
+  message Person {
+    string name = 1;
+    string email = 2;
+    string url = 3;
+  }
+
+  message Bugs {
+    string url = 1;
+    string email = 2;
+  }
+
+  string name = 1;
+  string version = 2;
+  string description = 3;
+  repeated string keywords = 4;
+  string homepage = 5;
+  Bugs bugs = 6;
+  string license = 7;
+  string author = 8;
+  repeated Person contributors = 9;
+  string funding = 10;
+  string files = 11;
+  string main = 12;
+  string browser = 13;
+  string bin = 14;
+  string man = 15;
+  string directories = 16;
+  string repository = 17;
+  map<string, string> scripts = 18;
+  map<string, string> config = 19;
+  map<string, string> dependencies = 20;
+  map<string, string> devDependencies = 21;
+  map<string, string> peerDependencies = 22;
+  map<string, string> peerDependenciesMeta = 23;
+  map<string, string> bundleDependencies = 24;
+  map<string, string> optionalDependencies = 25;
+  string overrides = 26;
+  string engines = 27;
+  string os = 28;
+  string cpu = 29;
+  bool private = 30;
+  string publishConfig = 31;
+  string workspaces = 32;
+}

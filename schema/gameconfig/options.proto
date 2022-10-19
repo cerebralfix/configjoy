@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+import "google/protobuf/descriptor.proto";
+
+package configjoy;
+
+message FieldOptions {
+  string map_enum_key = 1;
+}
+
+extend google.protobuf.FieldOptions {
+  optional FieldOptions options = 45000;
+}
