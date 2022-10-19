@@ -25,7 +25,7 @@ message PackageJson {
   string files = 11;
   string main = 12;
   string browser = 13;
-  string bin = 14;
+  map<string, string> bin = 14;
   string man = 15;
   string directories = 16;
   string repository = 17;
