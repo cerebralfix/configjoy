@@ -17,7 +17,7 @@ const { convert, Options } = require("./convert");
 
 program
     .name('string-util')
-    .version('0.1.3')
+    .version('0.1.4')
     .description('A structured, type-safe editor for configurable data.')
     .option('--files <files>')
     .option('--schema <schema>')
@@ -93,9 +93,9 @@ async function run() {
 
     await new Promise((resolve, reject) => {
         exec(`${path.join(__dirname, '/protogen/bin/protoc')} \
-        --plugin=protoc-gen-ts=${path.join(__dirname, '/node_modules/.bin/protoc-gen-ts')} \
+        --plugin=protoc-gen-ts=${path.join(__dirname, '/node_modules/.bin/protoc-gen-ts' + (process.platform === 'win32' ? '.cmd' : ''))} \
         --ts_out=${path.join(__dirname, '/generated/typescript/src')} \
-        --plugin=protoc-gen-configjoy=${path.join(__dirname, '/protogen/scripts/protoc-gen-configjoy')} \
+        --plugin=protoc-gen-configjoy=${path.join(__dirname, '/protogen/scripts/protoc-gen-configjoy' + (process.platform === 'win32' ? '.cmd' : ''))} \
         --configjoy_out=${path.join(__dirname, '/generated/')} \
         --configjoy_opt=dataDirectory=${filesDir},port=${program.opts().port}${program.opts().unityOutputDir ? `,unityOutputDir=${program.opts().unityOutputDir}` : ''} \
         ${program.opts().unityOutputDir ? `--csharp_out=${program.opts().unityOutputDir}` : ''} \
@@ -113,20 +113,20 @@ async function run() {
 
     if (!program.opts().generateOnly) {
         let printedWelcomeMessage = false;
-        const yarn = spawn('yarn', ['dev', '-p', program.opts().port], { cwd: __dirname });
+        const npm = spawn('npm', ['run', 'dev', '--', '-p', program.opts().port], { cwd: __dirname, shell: true });
 
-        yarn.stdout.on('data', (data) => {
+        npm.stdout.on('data', (data) => {
             if (!printedWelcomeMessage) {
                 printedWelcomeMessage = true;
                 console.log(`Interface running at http://localhost:${program.opts().port}`)
             }
         });
 
-        yarn.stderr.on('data', (data) => {
+        npm.stderr.on('data', (data) => {
             console.error(`stderr: ${data}`);
         });
 
-        yarn.on('close', (code) => {
+        npm.on('close', (code) => {
             console.log(`child process exited with code ${code}`);
         });
     } else {
