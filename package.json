@@ -1,6 +1,6 @@
 {
   "name": "configjoy",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "bin": {
     "configjoy": "./configjoy.js"
   },
