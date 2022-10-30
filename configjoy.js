@@ -17,7 +17,7 @@ const { convert, Options } = require("./convert");
 
 program
     .name('string-util')
-    .version('0.1.4')
+    .version('0.1.5')
     .description('A structured, type-safe editor for configurable data.')
     .option('--files <files>')
     .option('--schema <schema>')
