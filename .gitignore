@@ -41,5 +41,6 @@ generated/*
 pages/generated/*
 pages/api/*
 middleware.js
+!templates/middleware.js
 
 *.meta
