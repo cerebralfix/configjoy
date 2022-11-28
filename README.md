@@ -32,6 +32,15 @@ This utility was developed at [CerebralFix](https://cerebralfix.com).
 
 See [CONTRIBUTING.md](https://github.com/nicbarker/gameconfig/blob/main/CONTRIBUTING.md)
 
+#### Installation
+*Requires node.js*
+
+1. Download and extract the source code
+2. Run `npm install` from within the extracted folder
+3. Run `node configjoy.js`
+	a. See below or use `node configjoy.js --help` for more information
+4. Optionally you may find it useful to add configjoy to your path for easy access.
+
 #### Custom config file usage guide
 
 **1. Create a proto file**
