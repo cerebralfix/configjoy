@@ -30,7 +30,7 @@ This utility was developed at [CerebralFix](https://cerebralfix.com).
 #### Contributors
 [Nic Barker](https://github.com/nicbarker)
 
-See [CONTRIBUTING.md](https://github.com/nicbarker/gameconfig/blob/main/CONTRIBUTING.md)
+See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 #### Custom config file usage guide
 
