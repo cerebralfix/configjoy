@@ -11,7 +11,7 @@ CodeGeneratorRequest()
         // alternately, you can do all the google-protobuf stuff here
         const req = r.toObject()
         const options = req.parameter.split(',').map(o => o.split('='));
-        const dataDir = options.find(o => o[0] === 'dataDirectory')[1]
+        const dataDir = (options.find(o => o[0] === 'dataDirectory')[1]).replaceAll("\\", "/");
         let unityOutputDir = (options.find(o => o[0] === 'unityOutputDir') || [])[1]
         const port = options.find(o => o[0] === 'port')[1]
         // just get proto files that are being parsed directly by protoc
